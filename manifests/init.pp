@@ -63,7 +63,7 @@ class php5-fpm {
 	#	}
 	#	php5-fpm::config{"www-example-pool":
 	#		ensure	=> present,
-	#		content	=> template("php5-fpm/www-pool.conf.erb"),
+	#		content	=> template("php5-fpm/fpm.d/www-pool.conf.erb"),
 	#	}
 	#	
         define config ( $ensure = 'present', $content = '', $order="500") {
