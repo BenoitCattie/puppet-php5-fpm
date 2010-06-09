@@ -1,0 +1,31 @@
+[global]
+
+pid = /var/run/php5-fpm.pid
+
+error_log = /var/log/php5-fpm.log
+log_level = notice
+
+; When this amount of php processes exited with SIGSEGV or SIGBUS ...
+; 0 means 'Off'
+; default: 0
+;
+;emergency_restart_threshold = 0
+
+; ... in a less than this interval of time, a graceful restart will be initiated.
+; Useful to work around accidental curruptions in accelerator's shared memory.
+; available units are s(econd), m(inute), h(hour), or d(day)
+; default : 0s
+;
+;emergency_restart_interval = 0s
+
+; Time limit on waiting child's reaction on signals from master
+; available units are s(econd), m(inute), h(hour), or d(day)
+; default : 0s
+;
+;process_control_timeout = 0s
+
+; send fpm to backgound (default)
+; set to 'no' to keep FPM in foreground for debugging
+; default : yes
+;
+;daemonize = yes
