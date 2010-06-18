@@ -44,6 +44,7 @@ class php5-fpm {
 	exec{"reload-php5-fpm":
 		command => "/etc/init.d/php5-fpm reload",
                 refreshonly => true,
+		require => File["/etc/php5/fpm/php5-fpm.conf"],
         }
 
 	# Define : php5-fpm::config
@@ -79,6 +80,7 @@ class php5-fpm {
 			owner => root,
 			group => root,
 			notify => Exec["reload-php5-fpm"],
+			before => Service["php5-fpm"],
 		}
         }
 }
