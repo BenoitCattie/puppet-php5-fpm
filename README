@@ -8,7 +8,13 @@ Basic module for configuring php5-fpm via puppet.
 ## Intro ##
 
 This module installs php5-fpm from packages. 
+
+php5-fpm is not yet packaged in standart distrib repositories. 
+I use brianmercer ppa : https://launchpad.net/~brianmercer/+archive/php/
+Not tested yet with dotdeb packages (xml conf).
+ 
 Requires Package["php5-cgi"].
+
 Overwrites default conf with one than only include /etc/php5/fpm/fpm.d/*.conf.
 
 Configuration is made by 'php5-fpm::config' definition.
