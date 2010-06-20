@@ -13,8 +13,6 @@ php5-fpm is not yet packaged in standart distrib repositories.
 I use brianmercer ppa : https://launchpad.net/~brianmercer/+archive/php/
 Not tested yet with dotdeb packages (xml conf).
  
-Requires Package["php5-cgi"].
-
 Overwrites default conf with one than only include /etc/php5/fpm/fpm.d/*.conf.
 
 Configuration is made by 'php5-fpm::config' definition.
@@ -26,9 +24,6 @@ See below for details.
 This class manage php5-fpm installation and configuration. 
 Config file 'php5-fpm.conf' is very minimal : only include /etc/php5/fpm/fpm.d/*.conf
 Use php5-fpm::config for configuring php5-fpm 
-
-Requires:
-	- Package["php5-cgi"]
 
 Templates:
 	- php5-fpm.conf.erb

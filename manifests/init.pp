@@ -4,18 +4,12 @@
 # Config file 'php5-fpm.conf' is very minimal : only include /etc/php5/fpm/fpm.d/*.conf
 # Use php5-fpm::config for configuring php5-fpm 
 #
-# Requires:
-#	- Package["php5-cgi"]
-#
 # Templates:
 #	- php5-fpm.conf.erb
 #
 class php5-fpm {
 
-	package { php5-fpm: 
-		ensure => installed, 
-		require => Package["php5-cgi"],
-	}
+	package { php5-fpm: ensure => installed	}
 
 	service { php5-fpm:
 		ensure => running,
