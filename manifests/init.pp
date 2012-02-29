@@ -11,13 +11,14 @@
 #
 class php5-fpm {
 
-    package { 'php5-fpm': ensure => installed    }
+    package { 'php5-fpm': ensure => installed }
 
     service { 'php5-fpm':
-        ensure  => running,
-        enable  => true,
-        require => File['/etc/php5/fpm/php-fpm.conf'],
-        restart => '/etc/init.d/php5-fpm reload',
+        ensure      => running,
+        hasstatus    => true,
+        enable      => true,
+        require     => File['/etc/php5/fpm/php-fpm.conf'],
+        restart     => '/etc/init.d/php5-fpm reload',
     }
 
     file { '/etc/php5/fpm/php-fpm.conf':
