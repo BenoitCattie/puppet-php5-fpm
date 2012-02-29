@@ -12,11 +12,11 @@
 #       Defaults to "500"
 #
 # Sample Usage:
-#    php5-fpm::config{"global":
+#    php5-fpm::config { "global":
 #        ensure => present,
 #        order  => '000',
 #    }
-#    php5-fpm::config{"www-example-pool":
+#    php5-fpm::config { "www-example-pool":
 #        ensure     => present,
 #        content    => template("php5-fpm/pool.d/www-pool.conf.erb"),
 #    }

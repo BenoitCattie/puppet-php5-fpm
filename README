@@ -1,19 +1,18 @@
 # php5-fpm module #
-Author	: Benoit CATTIE <puppet@benoit.cattie.net>
-Version	: 0.1
+Author	: Benoit CATTIE <puppet@benoit.cattie.net>, Lars Fronius <lars@jimdo.com>
+Version	: 0.2
 Licence	: GPLv3
 
-Basic module for configuring php5-fpm via puppet.
+Fully puppet-lint compliant  module for configuring php5-fpm via puppet.
 
 ## Intro ##
 
 This module installs php5-fpm from packages. 
 
 php5-fpm is not yet packaged in standart distrib repositories. 
-I use brianmercer ppa : https://launchpad.net/~brianmercer/+archive/php/
-Not tested yet with dotdeb packages (xml conf).
+Tested yet with dotdeb packages (xml conf).
  
-Overwrites default conf with one than only include /etc/php5/fpm/fpm.d/*.conf.
+Overwrites default conf with one than only include /etc/php5/fpm/pool.d/*.conf.
 
 Configuration is made by 'php5-fpm::config' definition.
 
@@ -22,33 +21,29 @@ See below for details.
 ## Class: php5-fpm ##
 
 This class manage php5-fpm installation and configuration. 
-Config file 'php5-fpm.conf' is very minimal : only include /etc/php5/fpm/fpm.d/*.conf
+Config file 'php-fpm.conf' is very minimal : only include /etc/php5/fpm/pool.d/*.conf
 Use php5-fpm::config for configuring php5-fpm 
 
 Templates:
-	- php5-fpm.conf.erb
+	- php-fpm.conf.erb
 
 
 ## Define : php5-fpm::config ##
 
 Define a php-fpm config snippet. Places all config snippets into
-/etc/php5/fpm/fpm.d, where they will be automatically loaded
+/etc/php5/fpm/pool.d, where they will be automatically loaded
 
 Parameters :
 	* ensure: typically set to "present" or "absent".  Defaults to "present"
-	* content: set the content of the config snipppet.  Defaults to 'template("php5-fpm/fpm.d/$name.conf.erb")'
+	* content: set the content of the config snipppet.  Defaults to 'template("php5-fpm/pool.d/$name.conf.erb")'
 	* order: specifies the load order for this config snippet.  Defaults to "500"
 
 Sample Usage:
- 	php5-fpm::config{"global":
+ 	php5-fpm::config{ "global":
 		ensure	=> present,
 		order	=> "000",
 	}
-	php5-fpm::config{"www-example-pool":
+	php5-fpm::config{ "www-example-pool":
 		ensure	=> present,
 		content	=> template("php5-fpm/www-pool.conf.erb"),
 	}
-	
-
-
-

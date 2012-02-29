@@ -1,7 +1,7 @@
 # Class: php5-fpm
 #
 # This class manage php5-fpm installation and configuration.
-# Config file 'php5-fpm.conf' is very minimal
+# Config file 'php-fpm.conf' is very minimal
 # only include /etc/php5/fpm/pool.d/*.conf
 #
 # Use php5-fpm::config for configuring php5-fpm
