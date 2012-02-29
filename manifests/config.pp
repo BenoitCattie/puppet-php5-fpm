@@ -37,4 +37,12 @@ define php5-fpm::config ( $ensure = 'present', $content = '', $order='500') {
         notify  => Service['php5-fpm'],
         require => Package['php5-fpm']
     }
+
+    # Cleans up configs not managed by php5-fpm module
+    tidy { '/etc/php5/fpm/pool.d':
+        age     => '0',
+        recurse => '1',
+        matches => '[^0-9]*.conf',
+        notify  => Service['php5-fpm'],
+    }
 }
