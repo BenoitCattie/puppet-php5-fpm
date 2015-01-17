@@ -39,7 +39,7 @@ define php5-fpm::config ( $ensure = 'present', $content = '', $order='500') {
     }
 
     # Cleans up configs not managed by php5-fpm module
-    exec { 'cleanup-pool':
+    exec { "cleanup-pool-$name":
         cwd     => '/etc/php5/fpm/pool.d',
         path    => "/usr/bin:/usr/sbin:/bin",
         command => "find -name '[^0-9]*.conf' -exec rm {} +",
